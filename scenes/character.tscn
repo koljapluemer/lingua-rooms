@@ -1,4 +1,4 @@
-[gd_scene load_steps=58 format=3 uid="uid://ue47nxtaoru2"]
+[gd_scene load_steps=59 format=3 uid="uid://ue47nxtaoru2"]
 
 [ext_resource type="Texture2D" uid="uid://cd4galle3vlgf" path="res://assets/mystic_woods_free_2.2/sprites/characters/player.png" id="1_f6ids"]
 [ext_resource type="Script" path="res://scenes/character.gd" id="1_s0rpf"]
@@ -429,6 +429,9 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_h7gbc"]
+radius = 5.09902
+
 [node name="Character" type="CharacterBody2D"]
 script = ExtResource("1_s0rpf")
 
@@ -440,3 +443,5 @@ frame = 2
 frame_progress = 0.763849
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 13)
+shape = SubResource("CircleShape2D_h7gbc")
