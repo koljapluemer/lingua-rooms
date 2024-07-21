@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://cpd3u5g814o06"]
+[gd_scene load_steps=6 format=3 uid="uid://cpd3u5g814o06"]
 
 [ext_resource type="Texture2D" uid="uid://ixjb6viohdid" path="res://assets/tileset_16x16_interior/tileset_16x16_interior.png" id="4_t8qiy"]
 [ext_resource type="PackedScene" uid="uid://ue47nxtaoru2" path="res://scenes/character.tscn" id="5_pio7g"]
@@ -454,6 +454,9 @@ texture = ExtResource("4_t8qiy")
 physics_layer_0/collision_layer = 1
 sources/3 = SubResource("TileSetAtlasSource_5aoqj")
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xou8d"]
+size = Vector2(24, 408)
+
 [node name="PrototypeRoom" type="Node2D"]
 
 [node name="TileMap" type="TileMap" parent="."]
@@ -471,3 +474,23 @@ layer_3/tile_data = PackedInt32Array(2, 327683, 6, 393222, 720899, 3, 327684, 91
 
 [node name="Character" parent="." instance=ExtResource("5_pio7g")]
 position = Vector2(108, 70)
+
+[node name="MapLimits" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="MapLimits"]
+position = Vector2(2, 146)
+shape = SubResource("RectangleShape2D_xou8d")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="MapLimits"]
+position = Vector2(350, 146)
+shape = SubResource("RectangleShape2D_xou8d")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="MapLimits"]
+position = Vector2(170, 68)
+rotation = 1.5708
+shape = SubResource("RectangleShape2D_xou8d")
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="MapLimits"]
+position = Vector2(180, 286)
+rotation = 1.5708
+shape = SubResource("RectangleShape2D_xou8d")
