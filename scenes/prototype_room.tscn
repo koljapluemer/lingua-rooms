@@ -476,6 +476,7 @@ layer_3/tile_data = PackedInt32Array(2, 327683, 6, 393222, 720899, 3, 327684, 91
 position = Vector2(108, 70)
 
 [node name="MapLimits" type="Area2D" parent="."]
+disable_mode = 1
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="MapLimits"]
 position = Vector2(2, 146)
