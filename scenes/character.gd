@@ -10,6 +10,7 @@ func _physics_process(delta: float) -> void:
 	
 func player_movement(delta: float) -> void:
 	if Input.is_action_pressed("ui_right"):
+		var dialogue_line = DialogueManager.show_example_dialogue_balloon(preload("res://dialog/main.dialogue"), "start")
 		play_anim("right", true)
 		velocity.x = speed
 		velocity.y = 0
