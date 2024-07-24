@@ -20,3 +20,9 @@ Tileset 16x16 Interior
 
 Bonsaiheldin | http://bonsaiheld.org
 This work is released under a Creative Commons (CC) BY SA 3.0 license.
+
+
+## Demo NPC 
+
+Lanea Zimmerman, 0x72, Clint Bellanger, Charles Gabriel, basxto, DragonDePlatino, Kenney
+- [link](https://opengameart.org/content/tinygb-characters)
