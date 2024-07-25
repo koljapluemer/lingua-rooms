@@ -4,13 +4,17 @@ extends CharacterBody2D
 const speed = 100
 var last_anim_dir = "front"
 
+var intro_dialog_triggered = false
+
 func _physics_process(delta: float) -> void:
 	player_movement(delta)
 	pass
 	
 func player_movement(delta: float) -> void:
 	if Input.is_action_pressed("ui_right"):
-		var dialogue_line = DialogueManager.show_example_dialogue_balloon(preload("res://dialog/main.dialogue"), "start")
+		if not intro_dialog_triggered:
+			intro_dialog_triggered = true
+			DialogueManager.show_example_dialogue_balloon(preload("res://dialog/main.dialogue"), "start")
 		play_anim("right", true)
 		velocity.x = speed
 		velocity.y = 0
