@@ -6,3 +6,76 @@ Nathan: Here are some options.
 	Nathan: You picked the first one.
 - Second one
 	Nathan: You picked the second one.
+	
+	
+~ task_table
+
+Nathan: Ich gehe zum Tisch.
+Nathan: Geh zum Tisch.
+Nathan: Gut!
+
+~ task_chair
+
+Nathan: Ich gehe zum Stuhl.
+Nathan: Geh zum Stuhl.
+Nathan: Gut!
+
+~ task_other_room
+
+Nathan: Ich in das andere Zimmer.
+Nathan: Geh in das andere Zimmer.
+Nathan: Gut!
+
+~ task_trunk
+
+Nathan: Ich gehe zur Kiste
+Nathan: Geh zur Kiste.
+Nathan: Gut!
+
+~ task_shelf
+
+Nathan: Ich gehe zum Regal
+Nathan: Geh zum Regal.
+Nathan: Gut!
+
+~ task_wall
+
+Nathan: Ich gehe zur Wand.
+Nathan: Geh zur Wand.
+Nathan: Gut!
+
+~ task_carpet
+
+Nathan: Ich gehe auf den Teppich.
+Nathan: Geh auf den Teppich.
+Nathan: Gut!
+
+~ task_vases
+
+Nathan: Ich gehe zu den Krügen.
+Nathan: Geh zu den Krügen.
+Nathan: Gut!
+
+~ task_walk_5_sec
+
+Nathan: Ich gehe für 5 Sekunden.
+Nathan: Gehe für 5 Sekunden.
+Nathan: Gut!
+
+~ task_walk_back_and_forth
+
+Nathan: Ich gehe hin und her.
+Nathan: Geh hin und her.
+Nathan: Gut!
+
+~ task_walk
+
+Nathan: Ich gehe.
+Nathan: Geh.
+Nathan: Gut!
+
+~ task_stay_still
+
+Nathan: Ich stehe still.
+Nathan: Steh still.
+Nathan: Gut!
