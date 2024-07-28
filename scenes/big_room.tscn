@@ -10019,3 +10019,7 @@ node_destination = NodePath("../Character")
 
 [node name="Character" parent="." instance=ExtResource("3_sgwpp")]
 position = Vector2(138, 124)
+
+[node name="Camera2D" type="Camera2D" parent="Character"]
+zoom = Vector2(2, 2)
+position_smoothing_enabled = true
