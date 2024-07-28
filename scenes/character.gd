@@ -1,61 +1,68 @@
 extends CharacterBody2D
 @onready var animated_sprite_2d: AnimatedSprite2D = %AnimatedSprite2D
 
-const speed = 100
-var last_anim_dir = "front"
+@export var speed = 100
+@export var accel = 10
+var facing_direction: Vector2 = Vector2(0, 1)
 
 var intro_dialog_triggered = false
 
+
+enum AnimationType {
+	IDLE_DOWN,
+	IDLE_UP,
+	IDLE_LEFT,
+	IDLE_RIGHT,
+	MOVE_DOWN,
+	MOVE_UP,
+	MOVE_LEFT,
+	MOVE_RIGHT
+}
+const animation_names = {
+	AnimationType.IDLE_DOWN: "front_idle",
+	AnimationType.IDLE_UP: "back_idle",
+	AnimationType.IDLE_LEFT: "side_idle",
+	AnimationType.IDLE_RIGHT: "side_idle",
+	AnimationType.MOVE_DOWN: "front_walk",
+	AnimationType.MOVE_UP: "back_walk",
+	AnimationType.MOVE_LEFT: "side_walk",
+	AnimationType.MOVE_RIGHT: "side_walk"
+}
+
 func _physics_process(delta: float) -> void:
-	player_movement(delta)
-	pass
-	
-func player_movement(delta: float) -> void:
-	if Input.is_action_pressed("ui_right"):
-		#if not intro_dialog_triggered:
-			#intro_dialog_triggered = true
-			#DialogueManager.show_example_dialogue_balloon(preload("res://dialog/main.dialogue"), "start")
-		play_anim("right", true)
-		velocity.x = speed
-		velocity.y = 0
-	elif Input.is_action_pressed("ui_left"):
-		play_anim("left", true)
-		velocity.x = -speed
-		velocity.y = 0
-	elif Input.is_action_pressed("ui_down"):
-		play_anim("down", true)
-		velocity.y = speed
-		velocity.x = 0
-	elif Input.is_action_pressed("ui_up"):
-		play_anim("up", true)
-		velocity.y = -speed
-		velocity.x = 0
-	else:
-		velocity = Vector2(0, 0)
-		play_anim("none", false)
-
-
+	var direction:Vector2 = Input.get_vector("ui_left", "ui_right", "ui_up", "ui_down")
+	velocity = Vector2(0, 0)
+	if direction != Vector2(0, 0):
+		velocity = direction.normalized() * speed
+		facing_direction = direction
 	move_and_slide()
+	manage_animations()
+	
 
-func play_anim(dir, is_moving):
 
-	if is_moving:
-		if dir == "right":
-			animated_sprite_2d.flip_h = false
-			animated_sprite_2d.play("side_walk")
-			last_anim_dir = "side"
-		elif dir == "left":
-			animated_sprite_2d.flip_h = true
-			animated_sprite_2d.play("side_walk")
-			last_anim_dir = "side"
-		elif dir == "down":
-			animated_sprite_2d.flip_h = false
-			animated_sprite_2d.play("front_walk")
-			last_anim_dir = "front"
-		elif dir == "up":
-			animated_sprite_2d.flip_h = false
-			animated_sprite_2d.play("back_walk")
-			last_anim_dir = "back"
+func manage_animations() -> void:
+	if velocity.x > 0:
+		animated_sprite_2d.play(animation_names[AnimationType.MOVE_RIGHT])
+		animated_sprite_2d.flip_h = false
+	elif velocity.x < 0:
+		animated_sprite_2d.play(animation_names[AnimationType.MOVE_LEFT])
+		animated_sprite_2d.flip_h = true
+	elif velocity.y > 0:
+		animated_sprite_2d.play(animation_names[AnimationType.MOVE_DOWN])
+		animated_sprite_2d.flip_v = false
+	elif velocity.y < 0:
+		animated_sprite_2d.play(animation_names[AnimationType.MOVE_UP])
+		animated_sprite_2d.flip_v = false
 	else:
-		var anim_to_play =  last_anim_dir + "_idle"
-		animated_sprite_2d.play(anim_to_play)
+		if facing_direction.x > 0:
+			animated_sprite_2d.play(animation_names[AnimationType.IDLE_RIGHT])
+			animated_sprite_2d.flip_h = false
+		elif facing_direction.x < 0:
+			animated_sprite_2d.play(animation_names[AnimationType.IDLE_LEFT])
+			animated_sprite_2d.flip_h = true
+		elif facing_direction.y > 0:
+			animated_sprite_2d.play(animation_names[AnimationType.IDLE_DOWN])
+			animated_sprite_2d.flip_v = false
+		elif facing_direction.y < 0:
+			animated_sprite_2d.play(animation_names[AnimationType.IDLE_UP])
+			animated_sprite_2d.flip_v = false
