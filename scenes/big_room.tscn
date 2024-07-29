@@ -1,5 +1,6 @@
-[gd_scene load_steps=15 format=3 uid="uid://bdpehhq2rb2on"]
+[gd_scene load_steps=16 format=3 uid="uid://bdpehhq2rb2on"]
 
+[ext_resource type="Script" path="res://scenes/big_room_game.gd" id="1_5m5qw"]
 [ext_resource type="Texture2D" uid="uid://ixjb6viohdid" path="res://assets/tileset_16x16_interior/tileset_16x16_interior.png" id="1_h763q"]
 [ext_resource type="Texture2D" uid="uid://dlwc4y1hor4op" path="res://assets/bench_with_flowers-1.1/PNG/32x32/bench_with_flowers-001.png" id="1_wkgg6"]
 [ext_resource type="PackedScene" uid="uid://on3i6c1wpv8j" path="res://scenes/tutor.tscn" id="2_8isuu"]
@@ -10000,6 +10001,7 @@ sources/1 = SubResource("TileSetAtlasSource_f7i6a")
 sources/2 = SubResource("TileSetAtlasSource_qme00")
 
 [node name="PrototypeRoom" type="Node2D"]
+script = ExtResource("1_5m5qw")
 
 [node name="TileMap" type="TileMap" parent="."]
 position = Vector2(16, 81)
@@ -10026,3 +10028,9 @@ position = Vector2(138, 124)
 [node name="Camera2D" type="Camera2D" parent="Character"]
 zoom = Vector2(2, 2)
 position_smoothing_enabled = true
+
+[node name="InitialMissionTimer" type="Timer" parent="."]
+wait_time = 5.0
+one_shot = true
+
+[connection signal="timeout" from="InitialMissionTimer" to="." method="_on_initial_mission_timer_timeout"]
