@@ -3,9 +3,10 @@ extends CharacterBody2D
 
 @export var speed = 100
 @export var accel = 10
-var facing_direction: Vector2 = Vector2(0, 1)
 
 var intro_dialog_triggered = false
+
+var facing_direction: Vector2 = Vector2(0, 1)
 
 
 enum AnimationType {
