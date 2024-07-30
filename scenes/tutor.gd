@@ -26,6 +26,11 @@ const animation_names = {
 
 func _physics_process(delta: float) -> void:
 	var dir = to_local(nav_agent.get_next_path_position()).normalized()
+	# if position to destination is less than 50 pixels, stop moving
+	if to_local(nav_agent.target_position).length() < 20:
+		velocity = Vector2(0, 0)
+		animated_sprite_2d.play(animation_names[AnimationType.IDLE])
+		return
 	facing_direction = dir
 	velocity = dir * speed
 	move_and_slide()
