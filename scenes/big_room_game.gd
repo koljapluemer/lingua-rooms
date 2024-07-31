@@ -27,7 +27,7 @@ func _ready():
 	send_tutor_on_example_mission()
 
 func send_tutor_on_example_mission() -> void:
-	var target_cell = target_cells["box"][randi() % target_cells["box"].size()]
+	var target_cell = target_cells["table"][randi() % target_cells["table"].size()]
 	# convert to global coords
-	var target_position = $TileMap.map_to_local(target_cell)
+	var target_position = $TileMap.to_global($TileMap.map_to_local(target_cell))
 	$Tutor.set_target(target_position)
