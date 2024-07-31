@@ -24,3 +24,10 @@ func handle_tilemap_data() -> void:
 
 func _ready():
 	handle_tilemap_data()
+	send_tutor_on_example_mission()
+
+func send_tutor_on_example_mission() -> void:
+	var target_cell = target_cells["box"][randi() % target_cells["box"].size()]
+	# convert to global coords
+	var target_position = $TileMap.map_to_local(target_cell)
+	$Tutor.set_target(target_position)

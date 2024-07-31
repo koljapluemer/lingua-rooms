@@ -10008,6 +10008,7 @@ sources/2 = SubResource("TileSetAtlasSource_qme00")
 script = ExtResource("1_5m5qw")
 
 [node name="TileMap" type="TileMap" parent="."]
+unique_name_in_owner = true
 position = Vector2(16, 81)
 tile_set = SubResource("TileSet_d11av")
 format = 2
@@ -10022,11 +10023,12 @@ layer_3/tile_data = PackedInt32Array(393222, 720899, 3, 327684, 917507, 3, 39322
 layer_4/name = "Objects"
 layer_4/tile_data = PackedInt32Array(-655342, 2490370, 8, -655345, 2490370, 6, -720877, 2621442, 2, -786415, 2621442, 10, -786413, 2490370, 0, -720879, 2490370, 4, -655344, 2883586, 6)
 
-[node name="Tutor" parent="." node_paths=PackedStringArray("node_destination") instance=ExtResource("2_8isuu")]
+[node name="Tutor" parent="." instance=ExtResource("2_8isuu")]
+unique_name_in_owner = true
 position = Vector2(414, 176)
-node_destination = NodePath("../Character")
 
 [node name="Character" parent="." instance=ExtResource("3_sgwpp")]
+unique_name_in_owner = true
 position = Vector2(138, 124)
 
 [node name="Camera2D" type="Camera2D" parent="Character"]

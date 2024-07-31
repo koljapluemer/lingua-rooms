@@ -3,7 +3,7 @@ extends CharacterBody2D
 
 const speed = 50
 
-@export var node_destination: Node2D
+var destination: Vector2 
 @onready var nav_agent = $NavigationAgent2D
 
 var facing_direction: Vector2 = Vector2(0, 1)
@@ -38,15 +38,18 @@ func _physics_process(delta: float) -> void:
 
 
 func make_path() -> void:
-	nav_agent.target_position = node_destination.global_position
+	nav_agent.target_position = destination
 
 
 func _ready():
 	animated_sprite_2d.play("idle")
 
-
-func _on_timer_timeout() -> void:
+func set_target(target: Vector2) -> void:
+	destination = target
 	make_path()
+
+# func _on_timer_timeout() -> void:
+# 	make_path()
 
 func manage_animations() -> void:
 	if velocity.x > 0:
