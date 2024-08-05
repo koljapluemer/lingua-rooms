@@ -3,7 +3,8 @@ extends Node2D
 var target_cells = {}
 
 func _on_initial_mission_timer_timeout() -> void:
-	DialogueManager.show_example_dialogue_balloon(preload("res://dialog/main.dialogue"), "task_chair")
+	pass
+	# DialogueManager.show_example_dialogue_balloon(preload("res://dialog/main.dialogue"), "task_chair")
 
 func handle_tilemap_data() -> void:
 	var tilemap = $TileMap

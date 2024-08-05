@@ -120,8 +120,6 @@ shape = SubResource("CircleShape2D_h7gbc")
 
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
 radius = 50.0
-avoidance_layers = 3
-avoidance_mask = 3
 debug_enabled = true
 
 [node name="Timer" type="Timer" parent="."]
